@@ -1,5 +1,5 @@
-running-janusgraph-on-ubuntu
-==========================
+running-janusgraph-on-merge-server
+=================================
 
 Provides the docker-compose scripts and configuration files along with
 instructions on how to install and run Janusgraph on ubuntu
