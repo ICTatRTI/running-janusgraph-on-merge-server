@@ -76,19 +76,19 @@ docker run --rm --network=catapult-network --link catapult-janusgraph:janusgraph
 Reading and writing graph data to and from files
 ------------------------------------------------
 
-The folder at ./details/graph-io in your installation is bound to
-/opt/janusgraph/graph-io inside the container hosting Janusgraph. This means any
-file in the ./details/graph-io folder is visible to your Gremlin/Groovy scripts
-at /opt/janusgraph/graph-io. You can use FTP to move files to and from the
+The folder at ./merge in your installation is bound to
+/opt/janusgraph/merge inside the container hosting Janusgraph. This means any
+file in the ./merge folder is visible to your Gremlin/Groovy scripts
+at /opt/janusgraph/merge. You can use FTP to move files to and from the
 server hosting Janusgraph.
 
  
 
 In this distribution there are two graph files provided as examples:
 
--   air-routes-latest.graphml
+-   air-routes-latest.xml
 
--   ohio-counties-with-adjoins-edges.graphson
+-   ohio-counties-with-adjoins-edges.json
 
  
 
@@ -97,13 +97,13 @@ To load these into your database, use gremlin scripts like the following:
 For GraphML format:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graph.io(IoCore.graphml()).readGraph("/opt/janusgraph/graph-io/air-routes-latest.graphml")
+graph.io(IoCore.graphml()).readGraph("/opt/janusgraph/merge/air-routes-latest.xml")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 or for GraphSON3 format:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graph.io(IoCore.graphson()).readGraph("/opt/janusgraph/graph-io/ohio-counties-with-adjoins-edges.graphson")
+graph.io(IoCore.graphson()).readGraph("/opt/janusgraph/merge/ohio-counties-with-adjoins-edges.json")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  
@@ -114,23 +114,23 @@ format desired:
 For GraphML format:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graph.io(IoCore.graphml()).writeGraph("/opt/janusgraph/graph-io/my-graph.xml")
+graph.io(IoCore.graphml()).writeGraph("/opt/janusgraph/merge/my-graph.xml")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For GraphSON3 format:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graph.io(graphson()).writeGraph("/opt/janusgraph/graph-io/my-graph.graphson")
+graph.io(graphson()).writeGraph("/opt/janusgraph/merge/my-graph.graphson")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For Gryo(Kryo) format:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graph.io(gryo()).writeGraph("/opt/janusgraph/graph-io/my-graph.kryo")
+graph.io(gryo()).writeGraph("/opt/janusgraph/merge/my-graph.kryo")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Which can then be read using:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graph.io(gryo()).readGraph("/opt/janusgraph/graph-io/my-graph.kryo")
+graph.io(gryo()).readGraph("/opt/janusgraph/merge/my-graph.kryo")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
