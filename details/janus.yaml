@@ -20,7 +20,7 @@ services:
       # volumes and bind mounts for data, logs, io
       - "jgvolume:/var/lib/janusgraph"
       # TO avoid permissions issues run container/janusgraph/gremlin-server.sh as root modify entry script to not step down
-      - "./graph-io:/opt/janusgraph/graph-io"
+      - "./merge:/opt/janusgraph/merge"
       - "./log/janusgraph:/opt/janusgraph/log"
     networks:
       - catapult-network

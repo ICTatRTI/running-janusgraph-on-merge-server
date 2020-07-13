@@ -1,5 +1,5 @@
 hosts: [localhost]
 port: 8182
-username: user
-password: password
+username: catapult
+password: password4Catapult
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0, config: { serializeResultToString: true }}
